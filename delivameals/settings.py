@@ -137,15 +137,37 @@ WSGI_APPLICATION = 'delivameals.wsgi.application'
 
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
-
+# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5qdcs6cuh524g',
+        'USER': 'besdldeitkfnta',
+        'PASSWORD': '3da0e8bf800b62475853e12ef69aa64579d3421dac9c1800272bea3fc1999d14',
+        'HOST': 'ec2-34-231-221-151.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
