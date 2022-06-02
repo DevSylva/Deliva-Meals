@@ -5,6 +5,8 @@ from rest_framework import status
 from django.contrib.auth import logout
 from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
+from rest_framework.decorators import parser_classes
 from core.models import *
 from core.serializers import *
 
@@ -22,6 +24,7 @@ def register(request):
 
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
+@parser_classes([MultiPartParser])
 @swagger_auto_schema(request_body=FoodSerializer)
 def food(request):
     if request.method == "GET":
