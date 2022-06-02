@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import environ
 import os
 import environ
+import django_on_heroku
 
 
 env = environ.Env()
@@ -218,5 +219,4 @@ MEDIA_ROOT = BASE_DIR /'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-import django_heroku
-django_heroku.settings(locals())
+django_on_heroku.settings(locals())

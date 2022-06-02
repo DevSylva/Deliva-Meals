@@ -1,1 +1,1 @@
-web: gunicorn delivameals.asgi:application 
+web: daphne delivameals.asgi:application -p $PORT -b 0.0.0.0 -v2
