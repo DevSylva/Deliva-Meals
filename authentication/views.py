@@ -13,6 +13,7 @@ from django.contrib.auth import logout
 from rest_framework.views import APIView
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
 from rest_framework import status
+from rest_framework.parsers import JSONParser, MultiPartParser
 
 
 User = get_user_model()
@@ -25,6 +26,7 @@ class MyObtainTokenPairView(TokenObtainPairView):
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
+    parser_classes = [MultiPartParser]
     serializer_class = RegisterSerializer
 
 class LogoutView(APIView):
