@@ -1,1 +1,1 @@
-web: daphne delivameals.asgi:application -p $PORT -b 0.0.0.0 -v2
+web: gunicorn delivameals.wsgi --log-file -

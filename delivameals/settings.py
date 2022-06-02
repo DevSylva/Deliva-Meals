@@ -106,6 +106,7 @@ SIMPLE_JWT = {
 }
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -218,5 +219,8 @@ MEDIA_ROOT = BASE_DIR /'static/images'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 django_on_heroku.settings(locals())
