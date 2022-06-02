@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import environ
 import os
 import environ
-import django_on_heroku
+# import django_on_heroku
 
 
 env = environ.Env()
@@ -223,4 +223,6 @@ import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
-django_on_heroku.settings(locals())
+# django_on_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
