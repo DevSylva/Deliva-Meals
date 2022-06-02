@@ -26,7 +26,6 @@ class MyObtainTokenPairView(TokenObtainPairView):
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
-    parser_classes = [MultiPartParser]
     serializer_class = RegisterSerializer
 
 class LogoutView(APIView):
