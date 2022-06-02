@@ -1,8 +1,8 @@
 from django.db import models
 from core.helpers import category as cat
 
+
 class Food(models.Model):
-    
     name = models.CharField(max_length=50, null=True, blank=True)
     image1 = models.ImageField(null=True, blank=True)
     image2 = models.ImageField(null=True, blank=True)
