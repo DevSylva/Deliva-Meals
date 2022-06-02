@@ -13,15 +13,6 @@ from core.serializers import *
 
 
 # Create your views here.
-@api_view(["POST"])
-def register(request):
-    if request.method == "POST":
-        serializer = RegisterSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser])

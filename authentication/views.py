@@ -3,7 +3,7 @@ from .serializers import MyTokenObtainPairSerializer
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
-from authentication.models import User
+from django.contrib.auth import get_user_model
 from .serializers import RegisterSerializer
 from rest_framework import generics
 from rest_framework.decorators import api_view, permission_classes
@@ -13,6 +13,9 @@ from django.contrib.auth import logout
 from rest_framework.views import APIView
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
 from rest_framework import status
+
+
+User = get_user_model()
 
 # Create your views here.
 class MyObtainTokenPairView(TokenObtainPairView):
